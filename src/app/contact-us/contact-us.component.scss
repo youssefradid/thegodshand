@@ -1,0 +1,28 @@
+.btn-theme-colored {
+    color: #fff;
+    background-color: #546E7A;
+    border-color: #546E7A;
+}
+
+.mobile_visible {
+    display: none;
+}
+
+.responsive_margin {
+    margin-top: 150px;
+}
+
+@media (max-width:768px) {
+    .lap_visible {
+        display: none;
+    }
+
+    .mobile_visible {
+        margin-top: 50px;
+        display: block;
+    }
+
+    .responsive_margin {
+        margin-top: 0;
+    }
+}

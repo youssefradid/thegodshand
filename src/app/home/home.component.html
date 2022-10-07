@@ -1,0 +1,327 @@
+<!-- <div class="row">
+    <div class="col-12 mt-4 px-0" style="border-bottom: 1px solid #eee;">
+        <div class="d-flex px-3 py-2" style="box-shadow: 0px 0px 5px 3px #eee;">
+            <div style="width: 150px;">
+                <img style="width: 100%;border-radius: 5px;margin-top: 10px;" src="../../assets/orphonage1.jpeg" alt="">
+            </div>  
+            <div style="width: calc(100% - 150px);">
+                <div class="d-flex ml-3" style="justify-content: space-between;align-items: center;">
+                    <h6 style="margin: 0;"> orphanages Name 1</h6>
+                    <div><Button class="btn btn-sm btn-primary"> Donate</Button></div> 
+                </div>
+                <div class="ml-3">
+                    <span style="font-size:15px;opacity: 0.8;">
+                        <i class="fas fa-map-marker-alt"></i>
+                         localisation 1
+                    </span>
+                </div>
+                <div class="ml-3">
+                    <span style="font-size:15px;opacity: 0.8;">
+                        <i class="far fa-envelope-open"></i>
+                         Email@domaine.com
+                    </span>
+                </div>
+                <div class="ml-3">
+                    <span style="font-size:15px;opacity: 0.8;">
+                        <i class="fas fa-users"></i>
+                         502  Students
+                    </span>
+                </div>
+
+                <div class="ml-3">
+                    <span style="font-size:15px;">
+                        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rem, accusantium provident est voluptatum officia in labore necessitatibus, cumque eveniet libero, eum doloremque? Dolorum animi atque illo aliquid ipsa nulla fugiat?
+                    </span>
+                </div>
+            </div>  
+        </div>
+    </div>
+
+    
+</div> -->
+
+<div class="picsum-img-wrapper" [ngStyle]="{'height': heightScreen + 'px'}">
+    <div
+        style="background: url(../../assets/bg.jpg)
+           ;height: 100%;background-position: center;background-repeat: no-repeat;background-size: cover;position: relative;">
+
+        <div style="height: 100%;background: #00000066;"></div>
+        <div class="carousel-caption  ml-auto" style="width: 60%;">
+            <h1 class="text-white text-uppercase laptop-margin" style="font-size: 2.5rem; ">Donate</h1>
+            <h2 class="text-white text-uppercase " style="font-size: 1.5rem;">For The Helpless PEOPLE</h2>
+            <p class="text-white font-weight-400 mb-sm-10 mt-sm-0 mt-md-5">
+                THE GODS HAND connects nonprofits, donors, <br />
+                and organisations in almost every country on the planet.<br />
+                We assist other NGOs in obtaining the resources, funds, <br />
+                instruction, and assistance they require to serve their communities.
+            </p>
+            <a class="btn btn-colored btn-theme-colored btn-flat smooth-scroll-to-target laptop-margin-button"
+                (click)="globalService.where = ''" routerLink="orphenages">Donate
+                Now</a>
+
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h2 class="my-5 mb-0 mb-lg-5 text-uppercase text-center">Our <span class=" text-theme-colored">ORGANISATIONS</span>
+    </h2>
+    <div class="row">
+        <div class="col-12 col-lg-4 pt-3 my-lg-0" (click)="globalService.where = ''"
+            *ngFor="let orphonage of orphonages">
+            <div style="box-shadow: 0px 0px 3px 2px #ddd;min-height: 400px;border-radius: 10px;height: auto;">
+                <div style="height: 250px;position: relative; background-color: black; border-radius: 10px;">
+                    <ng-container
+                        *ngIf="orphonage.photos_links && orphonage.photos_links[0] && orphonage.photos_links[0].length != 0">
+                        <!-- <div (click)="goToDetails(orphonage)"
+                            [ngStyle]="{'background-image':'url('+globalService.web_site+orphonage.photos_links[0].filepath+')'}"
+                            style="cursor: pointer;height: 180px;background-position: center;background-size: contain;background-repeat: no-repeat;border-top-left-radius: 10px;border-top-right-radius: 10px;">
+                        </div> -->
+                        <div *ngIf="orphonage.photos_links && orphonage.photos_links.length != 0"
+                            (click)="goToDetails(orphonage)" style="text-align: center; width: 100%; height: inherit;">
+                            <img [src]="globalService.web_site+orphonage.photos_links[0].filepath"
+                                style="cursor: pointer; height: 100%; border-radius: 10px; width: 90%;" />
+                        </div>
+                    </ng-container>
+                </div>
+                <div class="px-2 py-3" style="border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;">
+
+                    <div>
+                        <div class="d-flex" style="align-items: center;justify-content: space-between;">
+
+                            <!-- Heading -->
+                            <h5 class="text-theme-colored mb-0" (click)="goToDetails(orphonage)"
+                                style="cursor:pointer;width: 100%; font-weight: 500;font-size: 19px;text-align: center;text-transform: capitalize; height: 60px; color:rgba(0, 140, 155, 1) !important">
+                                {{globalService.getSize("Your support will help for poor vulnerable children.",55)}}
+                            </h5>
+
+
+                        </div>
+                    </div>
+
+                    <div class="mt-3" style="align-items: center; justify-content: center; width: 100%; display: flex;">
+                        <div style="display: flex;">
+                            <img style="width: 30px !important; margin-left: 10px;" src="../../assets/by_icon.jpg" />
+                            <span style="font-size: 14px;max-width: 296px;" class="text-color; mx-1">{{"by " +
+                                orphonage.name}}
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="mt-3  d-flex" style="justify-content: space-between;">
+                        <a class="btn btn-theme-colored" (click)="goToDonate(orphonage)">Donate Now</a>
+                        <a class="btn btn-theme-colored" (click)="goToDetails(orphonage)">More Info </a>
+
+                    </div>
+
+                </div>
+                <!-- <div class="px-2 py-3" style="border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;">
+                    <div style="height: 40px;">
+                        <div style="text-align: center;">
+                            <h6 class="text-theme-colored mb-0" (click)="goToDetails(orphonage)"
+                                style="cursor:pointer;font-weight: 400;font-size: 18px;text-align: center;text-transform: capitalize;">
+                                {{orphonage.name}}</h6>
+                        </div>
+                    </div>
+                    <div class="mt-3 px-2">
+                        <span style="font-size: 14px;" class="text-color">{{globalService.getSize(orphonage.story,20)}}
+                        </span>
+                    </div>
+                    <div class="mt-2 px-2">
+                        <div style="font-size:15px; height:40px;" class="d-flex align-items-baseline">
+                            <div>
+                                <svg style="width: 12px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                                    <path
+                                        d="M172.268 501.67C26.97 291.031 0 269.413 0 192 0 85.961 85.961 0 192 0s192 85.961 192 192c0 77.413-26.97 99.031-172.268 309.67-9.535 13.774-29.93 13.773-39.464 0zM192 272c44.183 0 80-35.817 80-80s-35.817-80-80-80-80 35.817-80 80 35.817 80 80 80z" />
+                                </svg>
+                            </div>
+                            <div style="padding-left:15px;opacity:0.7">{{orphonage.location}}</div>
+                        </div>
+                    </div>
+                    <div class="mt-2 px-2">
+                        <span style="font-size:15px; display: flex; align-items: center;">
+                            <svg style="width: 14px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                                <path
+                                    d="M494.586 164.516c-4.697-3.883-111.723-89.95-135.251-108.657C337.231 38.191 299.437 0 256 0c-43.205 0-80.636 37.717-103.335 55.859-24.463 19.45-131.07 105.195-135.15 108.549A48.004 48.004 0 0 0 0 201.485V464c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V201.509a48 48 0 0 0-17.414-36.993zM464 458a6 6 0 0 1-6 6H54a6 6 0 0 1-6-6V204.347c0-1.813.816-3.526 2.226-4.665 15.87-12.814 108.793-87.554 132.364-106.293C200.755 78.88 232.398 48 256 48c23.693 0 55.857 31.369 73.41 45.389 23.573 18.741 116.503 93.493 132.366 106.316a5.99 5.99 0 0 1 2.224 4.663V458zm-31.991-187.704c4.249 5.159 3.465 12.795-1.745 16.981-28.975 23.283-59.274 47.597-70.929 56.863C336.636 362.283 299.205 400 256 400c-43.452 0-81.287-38.237-103.335-55.86-11.279-8.967-41.744-33.413-70.927-56.865-5.21-4.187-5.993-11.822-1.745-16.981l15.258-18.528c4.178-5.073 11.657-5.843 16.779-1.726 28.618 23.001 58.566 47.035 70.56 56.571C200.143 320.631 232.307 352 256 352c23.602 0 55.246-30.88 73.41-45.389 11.994-9.535 41.944-33.57 70.563-56.568 5.122-4.116 12.601-3.346 16.778 1.727l15.258 18.526z" />
+                            </svg>
+                            <span style="padding-left:12px;opacity:0.7">{{orphonage.email}}</span>
+                        </span>
+                    </div>
+                    <div class="mt-2 px-2">
+                        <span style="font-size:15px;">
+                            <svg style="width: 18px;" class="svg-inline--fa fa-users" aria-hidden="true"
+                                focusable="false" data-prefix="fas" data-icon="users" role="img"
+                                xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" data-fa-i2svg="">
+                                <path fill="currentColor"
+                                    d="M319.9 320c57.41 0 103.1-46.56 103.1-104c0-57.44-46.54-104-103.1-104c-57.41 0-103.1 46.56-103.1 104C215.9 273.4 262.5 320 319.9 320zM369.9 352H270.1C191.6 352 128 411.7 128 485.3C128 500.1 140.7 512 156.4 512h327.2C499.3 512 512 500.1 512 485.3C512 411.7 448.4 352 369.9 352zM512 160c44.18 0 80-35.82 80-80S556.2 0 512 0c-44.18 0-80 35.82-80 80S467.8 160 512 160zM183.9 216c0-5.449 .9824-10.63 1.609-15.91C174.6 194.1 162.6 192 149.9 192H88.08C39.44 192 0 233.8 0 285.3C0 295.6 7.887 304 17.62 304h199.5C196.7 280.2 183.9 249.7 183.9 216zM128 160c44.18 0 80-35.82 80-80S172.2 0 128 0C83.82 0 48 35.82 48 80S83.82 160 128 160zM551.9 192h-61.84c-12.8 0-24.88 3.037-35.86 8.24C454.8 205.5 455.8 210.6 455.8 216c0 33.71-12.78 64.21-33.16 88h199.7C632.1 304 640 295.6 640 285.3C640 233.8 600.6 192 551.9 192z">
+                                </path>
+                            </svg>
+                            <span style="padding-left:9px;opacity:0.7">{{orphonage.students}} Students</span>
+                        </span>
+                    </div>
+
+                    <div class="mt-2 px-2 d-flex justify-content-between">
+                        <a class="btn btn-theme-colored" (click)="goToDonate(orphonage)">Donate Now</a>
+                        <a class="btn btn-theme-colored">More Info</a>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <div class="col-12 text-center my-5">
+            <a style="font-size: 20px;" class="btn btn-colored btn-theme-colored text-center font-size"
+                (click)="globalService.where = ''" routerLink="orphenages">MORE ORGANISATIONS<i
+                    class="far px-2 fa-arrow-alt-circle-right"></i></a>
+        </div>
+    </div>
+</div>
+<!--    <h2 class="my-5 text-uppercase text-center">Conatct <span class=" text-theme-colored">Us.</span></h2>
+
+    <div class="row">
+        <div class="col-12">
+            <form class="form-card">
+                <div class="row justify-content-between text-left">
+                    <div class="form-group col-sm-6 flex-column d-flex">
+
+                        <label class="text-color">First name<span class="text-danger"> *</span>
+                        </label>
+
+                        <input type="text" id="fname" class="form-control" name="fname"
+                            placeholder="Enter your first name">
+                    </div>
+
+                    <div class="form-group col-sm-6 flex-column d-flex">
+                        <label class="text-color">Last name<span class="text-danger"> *</span></label>
+                        <input type="text" id="lname" name="lname" class="form-control"
+                            placeholder="Enter your last name">
+                    </div>
+                </div>
+                <div class="row justify-content-between text-left">
+                    <div class="form-group col-sm-6 flex-column d-flex">
+                        <label class="text-color">Business email<span class="text-danger"> *</span></label>
+                        <input type="text" id="email" name="email" class="form-control" placeholder="">
+                    </div>
+
+                    <div class="form-group col-sm-6 flex-column d-flex">
+                        <label class="text-color">Phone number<span class="text-danger"> *</span></label>
+                        <input type="text" id="mob" name="mob" placeholder="" class="form-control">
+                    </div>
+                </div>
+
+                <div class="row justify-content-between text-left">
+                    <div class="form-group col-12 flex-column d-flex">
+                        <label class="text-color">Type your message here<span class="text-danger"> *</span></label>
+                        <textarea name="" id="" cols="30" rows="10" class="form-control"></textarea>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 text-right">
+                        <a class="btn btn-colored btn-theme-colored btn-flat smooth-scroll-to-target"
+                            href="#donate-now">Contact</a>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div> -->
+
+<h2 class="my-5 text-uppercase text-center">About <span class=" text-theme-colored">Us.</span></h2>
+<section class="about-us mt-5">
+    <div class="container" style="height: 650px;">
+        <ngb-carousel [interval]="2500" [pauseOnHover]="true" [pauseOnFocus]="true" [showNavigationIndicators]="false">
+            <ng-template ngbSlide>
+                <div class="picsum-img-wrapper">
+                    <div class="py-5">
+                        <h1 class="text-center">We’re caring for families around the world through our 3 core programs
+                        </h1>
+                        <img src="../../assets/about-us-worldmap.webp" style="padding: 50px 100px;" alt="World Map"
+                            width="100%" />
+                    </div>
+                </div>
+            </ng-template>
+            <ng-template ngbSlide>
+                <div class="picsum-img-wrapper">
+                    <div class="row about-us-section2 py-5">
+                        <div class="col-5">
+                            <h2>Ronald McDonald House Programs</h2>
+                            <p>
+                                are a home away from home that provide comfort, support and resources to families who
+                                travel far from home for the medical care their child needs.
+                            </p>
+                            <div>
+                                <img src="../../assets/about-us-img1.webp" alt="About us image" />
+                            </div>
+                            <a class="btn btn-theme-colored mt-4">Learn More</a>
+
+                        </div>
+                        <div class="col-7">
+                            <img src="../../assets/about-us-worldmap-small.webp" width="100%" />
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+            <ng-template ngbSlide>
+                <div class="picsum-img-wrapper">
+                    <div class="row about-us-section2 py-5">
+                        <div class="col-5">
+                            <h2>Ronald McDonald Family Room programs</h2>
+                            <p>provide comfort to families right in the hospital, giving them a private place to relax
+                                or decompress.</p>
+                            <div>
+                                <img src="../../assets/about-us-img1.webp" alt="About us image" />
+                            </div>
+                            <a class="btn btn-theme-colored mt-4">Learn More</a>
+
+                        </div>
+                        <div class="col-7">
+                            <img src="../../assets/about-us-worldmap-small1.webp" width="100%" />
+                        </div>
+                    </div>
+                </div>
+            </ng-template>
+        </ngb-carousel>
+    </div>
+</section>
+
+<div class="container">
+    <app-contact-us></app-contact-us>
+</div>
+
+<!-- <section class="about-us">
+    <div class="container">
+        <div class="py-5">
+            <h1 class="text-center">We’re caring for families around the world through our 3 core programs</h1>
+            <img src="../../assets/about-us-worldmap.webp" style="padding: 50px 100px;" alt="World Map" width="100%" />
+        </div>
+        <div class="row about-us-section2 py-5">
+            <div class="col-5">
+                <h2>Ronald McDonald House Programs</h2>
+                <p>
+                    are a home away from home that provide comfort, support and resources to families who travel far from home for the medical care their child needs.
+                </p>
+                <div>
+                    <img src="../../assets/about-us-img1.webp" alt="About us image" />
+                </div>
+                <a class="btn btn-theme-colored mt-4">Learn More</a>
+
+            </div>
+            <div class="col-7">
+                <img src="../../assets/about-us-worldmap-small.webp" width="100%" />
+            </div>
+        </div>
+        <div class="row about-us-section2 py-5">
+            <div class="col-5">
+                <h2>Ronald McDonald Family Room programs</h2>
+                <p>provide comfort to families right in the hospital, giving them a private place to relax or decompress.</p>
+                <div>
+                    <img src="../../assets/about-us-img1.webp" alt="About us image" />
+                </div>
+                <a class="btn btn-theme-colored mt-4">Learn More</a>
+
+            </div>
+            <div class="col-7">
+                <img src="../../assets/about-us-worldmap-small1.webp" width="100%" />
+            </div>
+        </div>
+    </div>
+</section> -->
