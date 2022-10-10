@@ -46,21 +46,33 @@
            ;height: 100%;background-position: center;background-repeat: no-repeat;background-size: cover;position: relative;">
 
         <div style="height: 100%;background: #00000066;"></div>
-        <div class="carousel-caption  ml-auto" style="width: 60%;">
-            <span style = "position: relative;top: -20px;">
-                <h1 class="text-white text-uppercase laptop-margin" style="font-size: 2.5rem; ">Donate</h1>
-                <h2 class="text-white text-uppercase " style="font-size: 1.5rem;">For The Helpless PEOPLE</h2>
-            </span>
-            <p class="text-white font-weight-400 mb-sm-10 mt-sm-0 mt-md-5">
-                THE GODS HAND connects nonprofits, donors, <br />
-                and organisations in almost every country on the planet.<br />
-                We assist other NGOs in obtaining the resources, funds, <br />
-                instruction, and assistance they require to serve their communities.
-            </p>
-            <a class="btn btn-colored btn-theme-colored btn-flat smooth-scroll-to-target laptop-margin-button"
-                (click)="globalService.where = ''" routerLink="orphenages">Donate
-                Now</a>
 
+        
+
+        <div class="carousel-caption  ml-auto " style="width: 60%;">
+                <div class="row ">
+                  <div class="col ">
+                    <span style = "position: relative;top: -20px;">
+                        <h1 class="text-white text-uppercase laptop-margin" style="font-size: 2.5rem; ">Donate</h1>
+                        <h2 class="text-white text-uppercase " style="font-size: 1.5rem;">For The Helpless PEOPLE</h2>
+                    </span>
+                  </div>
+                  <div class="w-100"></div>
+                  <div class="col">
+                    <p class="text-white font-weight-400 float-right text-justify">
+                        THE GODS HAND connects nonprofits, donors, <br />
+                        and organisations in almost every country on the planet.<br />
+                        We assist other NGOs in obtaining the resources, funds, <br />
+                        and assistance they require to serve their communities.
+                    </p>
+                  </div>
+                  <div class="w-100"></div>
+                  <div class="col">
+                    <a class="btn btn-colored btn-theme-colored btn-flat smooth-scroll-to-target laptop-margin-button"
+                    (click)="globalService.where = ''" routerLink="orphenages">Donate
+                    Now</a>
+                  </div>
+              </div>
         </div>
     </div>
 </div>
