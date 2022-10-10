@@ -13,8 +13,8 @@
                         *ngIf="token.getUser().is_admin">Add Orphanage</button>
                 </div>
             </div>
-            <div class="col-md-auto">
-                <div class="input-group d-flex justify-content-center my-1" *ngIf="!token.getUser().is_admin">
+            <div class="col-md-auto  mr-n3">
+                <div class="input-group my-1" *ngIf="!token.getUser().is_admin">
                     <div class="form-outline">
                         <input type="search" (keydown.enter)="setSearchOrphonage()" [(ngModel)]="selected_country"
                             class="form-control" list="datalistOptions" placeholder="Search country" />
