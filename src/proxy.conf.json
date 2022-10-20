@@ -1,6 +1,6 @@
 {
     "/api/*": {
-        "target": "http://thegodshand.org",
+        "target": "http://godshanddonation.org",
         "secure": false,
         "logLevel": "debug"
     }

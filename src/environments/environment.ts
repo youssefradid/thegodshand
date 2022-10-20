@@ -4,9 +4,9 @@
 
 export const environment = {
   production: false,
-  AUTH_API: 'https://thegodshand.org/api',
+  AUTH_API: 'https://godshanddonation.org/api',
   // AUTH_API: 'http://127.0.0.1:5000/api',
-  web_site: 'https://thegodshand.org/',
+  web_site: 'https://godshanddonation.org/',
   stripe_key: 'pk_test_51Kxx8qSDCcD8USttu1zp7YxMiCD4cE0SvFv4Q6mhpdV8BBJOjnY520Sxd6DuKo1IuhaUReqpfyWfZeIemXRD3VD700ThbUEDEd',
   stripe_pay_url: '/stripe'
   // stripe_pay_url: 'http://localhost:55080/stripe'
