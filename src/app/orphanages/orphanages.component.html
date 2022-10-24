@@ -3,15 +3,15 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-sm"></div>
+            
             <div class="col-md-auto">
                 <div class="d-flex my-5"
                     [ngStyle]="{'justify-content': token.getUser().is_admin ?'space-between':'center' }">
-                    <h2 class=" text-uppercase ">Our<span class=" text-theme-colored">&nbsp;ORGANISATIONS</span></h2>
                     <button class="btn btn-theme-colored"
                         (click)="clearOrphonageCache();globalService.triggerModal(modalData);"
                         *ngIf="token.getUser().is_admin">Add Orphanage</button>
                 </div>
+                <h2 class=" text-uppercase ">Our<span class=" text-theme-colored">&nbsp;ORGANISATIONS</span></h2>
             </div>
             <div class="col-md-auto  mr-n3">
                 <div class="input-group my-1" *ngIf="!token.getUser().is_admin">
@@ -84,7 +84,7 @@
                             <!-- Heading -->
                             <h5 class="text-theme-colored mb-0" (click)="goToDetails(orphonage)"
                                 style="cursor:pointer;width: 100%; font-weight: 500;font-size: 19px;text-align: center;text-transform: capitalize; height: 60px; color:rgba(0, 140, 155, 1) !important">
-                                {{globalService.getSize("Your support will help for poor vulnerable children.",55)}}
+                                {{orphonage.heading}}
                             </h5>
 
                             <!-- <span *ngIf="token.getUser().is_admin" (click)="deleteOrphonage(orphonage.id)"
@@ -171,6 +171,12 @@ THE CHARITY WHO IS RUNNING THIS CAMPAIGN -->
     <div class="modal-body">
         <div class="row">
             <div class="col-6">
+
+                <div class="mt-3">
+                    <label for="">Heading</label>
+                    <input type="text" class="form-control" [(ngModel)]="modelorphonage.heading" maxlength="55">
+                </div>
+
                 <div class="mt-3">
                     <label for="">certidicate</label>
                     <input type="text" class="form-control" [(ngModel)]="modelorphonage.registration_certificate"

@@ -19,6 +19,7 @@ export class Orphonage {
     good_work: string="";
     monthly_donation :string="";
     registration_certificate: string="";
+    heading: string="";
     blog_link: string="";
     // oskar
     bene_heading: string = "";
