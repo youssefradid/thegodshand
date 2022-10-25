@@ -197,8 +197,6 @@ export class OrphanageDetailComponent implements OnInit {
       }
       else{
         this.orphonage.photos_links.push(result);
-        console.log(photos_links);
-        console.log(this.orphonage);
         this.orphonageService.affectPicOrphanage(this.orphonage.id, this.orphonage).subscribe(result => {
           this.globalService.close();
         });

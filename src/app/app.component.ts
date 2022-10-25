@@ -7,6 +7,8 @@ import { PaypalService } from './_service/pay-pal-service.service';
 
 import { IPayPalConfig, ICreateOrderRequest } from 'ngx-paypal';
 import { textChangeRangeIsUnchanged } from 'typescript';
+import { TokenStorageService } from './_service/token-storage.service';
+
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
@@ -21,7 +23,7 @@ export class AppComponent {
 
     orphanage: any;
 
-    constructor(public globalService: GlobalService, @Inject(DOCUMENT) private document: Document) { }
+    constructor(public globalService: GlobalService, @Inject(DOCUMENT) private document: Document, public token: TokenStorageService) { }
 
     ngOnInit(): void {
         this.globalService.currentMessage.subscribe(message => {
@@ -29,7 +31,6 @@ export class AppComponent {
             // this.initConfig(message);
             console.log(message)
         });
-
 
     }
 

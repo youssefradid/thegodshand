@@ -21,11 +21,11 @@
           <!-- <li><a (click)="globalService.where = ''" routerLink="signUp" class="nav-link">Sign-Up</a></li> -->
           <li><a (click)="removeMenuSm()" routerLink="aboutUs" class="nav-link">About Us</a></li>
           <li><a (click)="removeMenuSm()" routerLink="contactUs" class="nav-link">Contact Us</a></li>
-          <li><a (click)="removeMenuSm()" routerLink="login" class="nav-link">Login</a></li>
+          <li><a (click)="removeMenuSm()" routerLink="login" class="nav-link" *ngIf="!token.getUser().id">Login</a></li>
 
         </ul>
         <div style="padding: 1rem 1rem;">
-          <button (click)="removeMenuSm()" routerLink="signUp" class="btn btn-colored btn-theme-colored  w-100">Sign
+          <button (click)="removeMenuSm()" routerLink="signUp" class="btn btn-colored btn-theme-colored  w-100" *ngIf="!token.getUser().id">Sign
             Up</button>
         </div>
       </div>
