@@ -180,9 +180,30 @@ export default function PaypalCompnent(props: any) {
     const isPortrait = useMediaQuery({ query: '(orientation: portrait)' })
     const isRetina = useMediaQuery({ query: '(min-resolution: 2dppx)' })
 
+    const desktopStyle = {
+        display: 'flex',
+        fontSize: '14px',
+        justifyContent: 'center',
+        margin: 'auto', 
+        maxWidth: '480px', 
+        justifySelf: 'center',
+        alignSelf: 'center',
+        alignContent: 'center'
+    };
+    const MobileStyle = {
+        display: 'flex',
+        fontSize: '9px',
+        justifyContent: 'center',
+        margin: 'auto', 
+        maxWidth: '280px', 
+        justifySelf: 'center',
+        alignSelf: 'center',
+        alignContent: 'center'
+    };
+    let styleToApply;
+    {isDesktopOrLaptop ?  styleToApply =  desktopStyle : styleToApply =  MobileStyle}
 
-
-    const Page = <div style={{ alignContent: 'center', marginTop: '40%', justifyContent: 'center', alignSelf: 'center', justifyItems: 'center' }} >
+    const Page =  <div style= {styleToApply} >
         {
             props.orphanage.acttype == 'paypal' ?
                 transactionStat == 'successful' ? (<div>
@@ -324,8 +345,8 @@ export default function PaypalCompnent(props: any) {
       </div >
 
 	return (
-    <div style={{ display: 'flex', fontSize: '14px', justifyContent: 'center', margin: 'auto', maxWidth: '480px', justifySelf: 'center', alignSelf: 'center', alignContent: 'center' }}>
-        {isTabletOrMobile ? Page : isDesktopOrLaptop ? Page : isPortrait ? Page : Page}
+    <div >
+        {Page}
     </div>
 );
 }
