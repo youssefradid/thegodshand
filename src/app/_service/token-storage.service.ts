@@ -18,10 +18,15 @@ export class TokenStorageService {
   public saveToken(token: string): void {
     window.localStorage.removeItem(TOKEN_KEY);
     window.localStorage.setItem(TOKEN_KEY, token);
+    window.localStorage.setItem("token-createdTime", new Date().getTime().toString());
   }
 
   public getToken(): string | null {
     return window.localStorage.getItem(TOKEN_KEY);
+  }
+
+  public getTokenCreatedTime(): string | null {
+    return window.localStorage.getItem("token-createdTime");
   }
 
   public saveUser(user: any): void {

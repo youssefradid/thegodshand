@@ -20,6 +20,16 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.heightScreen = window.innerHeight - 120 - 120;
     this.images = [944, 1011, 984].map((n) => `https://picsum.photos/id/${n}/900/500`);
+
+    let tokenCreatedTime = this.token.getTokenCreatedTime();
+    //token is created in backend API and it have 1 hour to be expired
+    //this script check if createdTime of the token passes 1 hour(3600000000000 nanoseconds) then logout
+    if(tokenCreatedTime){
+      if(new Date().getTime() > (Number(tokenCreatedTime) + 3600000000000)){
+        this.token.signOut();
+      }
+    }
+
     this.getAllOrphonage();
   }
 
