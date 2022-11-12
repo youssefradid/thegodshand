@@ -178,7 +178,6 @@ export class OrphanageDetailComponent implements OnInit {
   }
   addImages() {
     console.log(this.certificate);
-    alert(12123)
     let fData = new FormData();
     fData.append("media", JSON.stringify(this.stepsModel));
     fData.append("file", this.stepsModel[0].file);

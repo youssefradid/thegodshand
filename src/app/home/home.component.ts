@@ -25,9 +25,10 @@ export class HomeComponent implements OnInit {
     //token is created in backend API and it have 1 hour to be expired
     //this script check if createdTime of the token passes 1 hour(3600000000000 nanoseconds) then logout
     if(tokenCreatedTime){
-      if(new Date().getTime() > (Number(tokenCreatedTime) + 3600000000000)){
+      console.log(Number(tokenCreatedTime) + 3600000);
+      if(new Date().getTime() > (Number(tokenCreatedTime) + 3600000)){
         this.token.signOut();
-      }
+      } 
     }
 
     this.getAllOrphonage();
