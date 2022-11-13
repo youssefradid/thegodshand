@@ -23,7 +23,7 @@ export class UserService {
   }
 
   updateUser(data:any): Observable<any> {
-    return this.http.put(environment.AUTH_API + '/users/'+data.id, data, httpOptions);
+    return this.http.put(environment.AUTH_API + '/user/'+data.id, data, httpOptions);
   }
 
   deletteUser(data:any): Observable<any> {
