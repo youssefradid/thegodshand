@@ -15,7 +15,8 @@ export class ContactUsComponent implements OnInit {
     email: 'thegodshand4@gmail.com'
   }
   message = {
-    name:'',
+    first_name:'',
+    last_name:'',
     email:'',
     phone_no:'',
     content:''
@@ -42,7 +43,8 @@ export class ContactUsComponent implements OnInit {
     console.log(data)
     this.messageService.sendMessage(data).subscribe(result=>{
       this.message = {
-        name: '',
+        first_name: '',
+        last_name: '',
         email:'',
         phone_no:'',
         content:''
